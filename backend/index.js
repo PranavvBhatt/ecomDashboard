@@ -11,9 +11,9 @@ require('./models/db')
 app.use(express.json())
 app.use(cors())
 
-
-
-app.post("/register", async (req, resp) => {
+const authRoutes = require('./routes/authRoutes');
+app.use("/", authRoutes);
+/*app.post("/register", async (req, resp) => {
   try {
 
     const user = new CustomerModel(req.body);
@@ -22,8 +22,16 @@ app.post("/register", async (req, resp) => {
     resp.status(201).send(result);
   } catch (err) {
     resp.status(400).send({ error: "Failed to register user", details: err.message });
+
   }
-});
+
+
+ app.post("/login",(req,resp)=>{
+
+  let user = User.findOne(req.body);
+
+ })
+});*/
 
 
 
