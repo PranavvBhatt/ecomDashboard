@@ -9,3 +9,8 @@ const userSchema = new Schema({
 
 const CustomerModel = mongoose.model('user', userSchema);
 module.exports = CustomerModel; 
+
+
+
+
+
