@@ -40,74 +40,85 @@ const SignUp = () => {
       result = await result.json();
       localStorage.setItem("user", JSON.stringify(result));
       if (result) {
+        toast.success("Registration successful!");
         navigate("/");
       }
     } catch (err) {
-      alert("Registration failed!");
+      toast.error("Registration failed!");
     }
   };
 
   return (
-    
-    <div className="max-w-sm mx-auto mt-16 p-8 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-2xl shadow-2xl flex flex-col gap-6 border border-blue-200">
-      
-      <div className="flex flex-col items-center gap-2">
-        <span className="inline-flex items-center justify-center bg-blue-600 text-white rounded-full w-14 h-14 shadow-lg mb-2">
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
+    <div className="relative min-h-screen w-full">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/login.jpg')" }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0"></div>
+
+      {/* Signup Form */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
+        <div className="max-w-sm w-full p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl text-white">
+          <div className="flex flex-col items-center gap-3 mb-4">
+            <div className="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5.121 17.804A6 6 0 1118.93 17.804M12 14v.01"
+                />
+              </svg>
+            </div>
+            <h1 className="text-2xl font-extrabold text-center">REGISTER</h1>
+            <p className="text-sm text-center text-white/80">
+              Create your free account below.
+            </p>
+          </div>
+
+          <input
+            className="px-4 py-3 mb-3 rounded-md border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Name"
+            autoComplete="username"
+          />
+
+          <input
+            className="px-4 py-3 mb-3 rounded-md border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter Email"
+            autoComplete="email"
+          />
+
+          <input
+            className="px-4 py-3 mb-5 rounded-md border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter Password"
+            autoComplete="new-password"
+          />
+
+          <button
+            onClick={handleLogin}
+            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-800 hover:to-blue-600 text-white font-bold py-3 rounded-lg shadow-lg transition duration-300"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5.121 17.804A6 6 0 1118.93 17.804M12 14v.01"
-            ></path>
-          </svg>
-        </span>
-        <h1 className="text-2xl font-extrabold text-center text-blue-800 mb-1">
-          Register
-        </h1>
-        <p className="text-blue-500 text-center text-sm">
-          Create your free account below.
-        </p>
+            Sign Up
+          </button>
+        </div>
       </div>
-
-      <input
-        className="inputbox px-4 py-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-blue-50 placeholder-blue-400 text-blue-900 shadow-sm"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Enter Name"
-        autoComplete="username"
-      />
-
-      <input
-        className="inputbox px-4 py-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-blue-50 placeholder-blue-400 text-blue-900 shadow-sm"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter Email"
-        autoComplete="email"
-      />
-
-      <input
-        className="inputbox px-4 py-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-blue-50 placeholder-blue-400 text-blue-900 shadow-sm"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter Password"
-        autoComplete="new-password"
-      />
-
-      <button
-        onClick={handleLogin}
-        className="w-full bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-800 hover:to-cyan-500 text-white font-bold py-3 rounded-lg shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-lg tracking-wider"
-      >
-        Sign Up
-      </button>
     </div>
   );
 };
