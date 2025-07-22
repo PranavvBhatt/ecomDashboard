@@ -11,8 +11,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-3 ">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <nav  className="bg-gray-800 bg-opacity-80 fixed top-0 left-0 w-full z-50 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-3 ">
         {/* Left: Navigation links */}
         <ul className="flex space-x-6">
           <li>
@@ -59,7 +59,7 @@ const Nav = () => {
               </Link>
               <Link
                 to="/login"
-                className="text-white text-l hover:text-blue-400"
+                className="text-white text-l hover:text-blue-400 pe-6"
               >
                 login
               </Link>
@@ -91,5 +91,6 @@ const Nav = () => {
 };
 
 export default Nav;
+
 
 

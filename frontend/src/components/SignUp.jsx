@@ -48,7 +48,9 @@ const SignUp = () => {
   };
 
   return (
+    
     <div className="max-w-sm mx-auto mt-16 p-8 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-2xl shadow-2xl flex flex-col gap-6 border border-blue-200">
+      
       <div className="flex flex-col items-center gap-2">
         <span className="inline-flex items-center justify-center bg-blue-600 text-white rounded-full w-14 h-14 shadow-lg mb-2">
           <svg

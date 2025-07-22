@@ -60,6 +60,7 @@ function App() {
 
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
+            
           </Routes>
         </main>
         <ToastContainer position="top-center" autoClose={3000} />
